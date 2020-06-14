@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
-.image-frame {
-  background-color: green;
+.App .imgContainer {
+  background-color: teal;
+  width: 80%;
+}
+
+.App .imgWrapper {
+  margin: 30px;
 }

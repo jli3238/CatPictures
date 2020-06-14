@@ -1,43 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import '../src/index.css';
 
 function App() {
-  const [catPic, setCatPic] = useState(); 
+  const [catPic, setCatPic] = useState({}); 
   const [catPics, setCatPics] = useState([]);
   const catPicUrl = 'https://api.thecatapi.com/v1/images/search';
 
-  useEffect(() =>{
+  useEffect(() => {
     try{
-      fetch(catPicUrl).then(response => response.json()).then(picUrl => { setCatPic(picUrl); setCatPics([...catPics, picUrl])}, error => console.log(error));
+      fetch(catPicUrl).then(response => response.json()).then(picUrl => { setCatPic(picUrl[0]); setCatPics([...catPics, picUrl[0]])}, error => console.log(error));
     } catch(error) {console.log(error);}
   }, [])
 
   const handleFetch = () => {
-    fetch(catPicUrl).then(response => response.json()).then(picUrl => { setCatPic(picUrl); setCatPics([...catPics, picUrl])}, error => console.log(error));
+    fetch(catPicUrl).then(response => response.json()).then(picUrl => { setCatPic(picUrl[0]); setCatPics([...catPics, picUrl[0]])}, error => console.log(error));
   }
 
   const handleGetPrevious = () => {
-    let currentPicIndex = 0;
-    for(let i=0; i<catPics.length; i++) {
-      if(catPics[i].url === catPic.url) { currentPicIndex = i; }
-  }
-  setCatPic(catPics[currentPicIndex-1]);
+    const currentPicIndex = catPics.findIndex(pic => pic.url === catPic.url);
+    setCatPic(catPics[currentPicIndex-1]);
 }
 
   const handleGetNext = () => {
-    let currentPicIndex = 0;
-    for(let i=0; i<catPics.length; i++) {
-      if(catPics[i].url === catPic.url) { currentPicIndex = i; }
-  }
-  setCatPic(catPics[currentPicIndex]);
+    let currentPicIndex = catPics.findIndex(pic => pic.url === catPic.url);
+    setCatPic(catPics[currentPicIndex]);
   }
   
   return (
     <div className="App">
       <main>
-        <div>
-          <div>
-            {catPic !== undefined && catPic.length > 0 && <img src={catPic[0].url} width='84' height='136' alt='cat-pic'/>}
-            <div>url: {catPic !== undefined && catPic.length > 0 && catPic[0].url}, breed: {catPic !== undefined && catPic.length > 0 && catPic[0].breed}</div>
+        <div className="imgContainer">
+          <div className="imgWrapper">
+            {catPic !== undefined && <img src={catPic.url} height='500px' alt='cat-pic'/>}
+            <div>url: {catPic !== undefined && catPic.url}, breed: {catPic !== undefined && catPic.breed}</div>
             <button onClick={handleFetch}>Fetch New</button>
           </div>
           <div className='navigator'>
