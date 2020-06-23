@@ -36,11 +36,11 @@ function App() {
         <div className="imgContainer">
           { catPics !== undefined && catPics.length > 0 && catPics[currPicInd] && <img src={catPics[currPicInd].url} height='500px' alt='cat-pic'/>}
           <div className="catAttributes">
-            <p>Origin: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].origin}; 
+            <div>Origin: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].origin}; 
             Life span: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].life_span}; 
-            Breed: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].name}</p>
-            <p>Description: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].description}</p>
-            <p>Url: {catPics !== undefined && catPics.length > 0 && catPics[currPicInd].url}</p>
+            Breed: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].name}</div>
+            <div>Description: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].description}</div>
+            <div>Url: {catPics !== undefined && catPics.length > 0 && catPics[currPicInd].url}</div>
           </div>
           <button onClick={handleFetch}>Fetch New Cat</button>
         </div>
