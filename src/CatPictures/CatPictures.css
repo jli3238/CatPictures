@@ -13,14 +13,27 @@ body {
   margin-left: 30px;
 }
 
+.imgWrapper {
+  display: flex;
+  margin-top: 15px;
+}
+
+.catAttributes {
+  flex-grow: 10;
+}
+
+.fetchNewCat {
+  flex-grow: 1;
+}
+
 .imgContainer button {
   height: 50px;
-  width: 300px;
-  margin-left: 660px;
-  margin-bottom: 15px;
-  padding-right: 50px;
-  padding-left: 50px;
+  width: 150px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
   white-space: nowrap;
+  flex-grow: 1;
 }
 
 .App img {

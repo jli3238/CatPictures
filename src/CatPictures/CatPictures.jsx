@@ -35,14 +35,16 @@ function App() {
       <main>
         <div className="imgContainer">
           { catPics !== undefined && catPics.length > 0 && catPics[currPicInd] && <img src={catPics[currPicInd].url} height='500px' alt='cat-pic'/>}
-          <div className="catAttributes">
-            <div>Origin: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].origin}; 
-            Life span: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].life_span}; 
-            Breed: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].name}</div>
-            <div>Description: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].description}</div>
-            <div>Url: {catPics !== undefined && catPics.length > 0 && catPics[currPicInd].url}</div>
-          </div>
-          <button onClick={handleFetch}>Fetch New Cat</button>
+          <div className="imgWrapper">
+            <div className="catAttributes">
+              <div>Origin: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].origin}; 
+              Life span: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].life_span}; 
+              Breed: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].name}</div>
+              <div>Description: {catPics !== undefined && catPics.length > 1 && catPics[currPicInd].breeds[0] && catPics[currPicInd].breeds[0].description}</div>
+              <div>Url: {catPics !== undefined && catPics.length > 0 && catPics[currPicInd].url}</div>
+            </div>
+            <div className="fetchNewCat"><button onClick={handleFetch}>Fetch New Cat</button></div>
+            </div>
         </div>
         <div className='navigator'>
           <button className='navButtonPrev' onClick={handleGetPrevious}>Previous</button>
